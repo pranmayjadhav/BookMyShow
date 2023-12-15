@@ -5,6 +5,7 @@ import com.personal.bookmyshowapp.DTOs.BookingMovieResponseDTO;
 
 public class BookingController {
     public BookingMovieResponseDTO bookMovie(BookingMovieRequestDTO bookingMovieRequestDTO) {
+
         return null;
     }
 }
