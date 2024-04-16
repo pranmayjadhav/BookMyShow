@@ -23,6 +23,10 @@ public class UserService {
             throw new RuntimeException("User already exist!");
         }
         User user = new User();
+        //Not working
+//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//        user.setPassword(bCryptPasswordEncoder.encode(password));
+
         user.setPassword(password);
         user.setEmail(email);
         user.setBookings(new ArrayList<>());
