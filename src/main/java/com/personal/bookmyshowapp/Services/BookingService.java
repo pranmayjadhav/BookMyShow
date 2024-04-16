@@ -27,13 +27,16 @@ public class BookingService {
     private BookingRepository bookingRepository;
     private ShowSeatRepository showSeatRepository;
     private ShowRepository showRepository;
+    private PriceCalculator priceCalculator;
     @Autowired
     public BookingService(UserRepository userRepository, BookingRepository bookingRepository,
-                          ShowSeatRepository showSeatRepository, ShowRepository showRepository) {
+                          ShowSeatRepository showSeatRepository, ShowRepository showRepository,
+                          PriceCalculator priceCalculator) {
         this.userRepository = userRepository;
         this.bookingRepository = bookingRepository;
         this.showSeatRepository = showSeatRepository;
         this.showRepository = showRepository;
+        this.priceCalculator = priceCalculator;
     }
 
 
@@ -89,7 +92,7 @@ public class BookingService {
         booking.setUser(bookedBy);
         booking.setBookedAt(new Date());
         booking.setShow(bookedShow);
-        booking.setAmount(0);
+        booking.setAmount(priceCalculator.calculatePrice(savedShowSeats, bookedShow));
         booking.setPayments(new ArrayList<>());
         //-----------------------------------------------------------------------------------------
 

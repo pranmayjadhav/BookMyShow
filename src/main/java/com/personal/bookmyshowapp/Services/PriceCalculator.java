@@ -21,7 +21,17 @@ public class PriceCalculator {
         //1. Find out the type of seats in the given show
         //2. Get seat types for all the selected shows
         //3. Calculate the amount
-        return null;
+        List<ShowSeatType> showSeatTypes = showSeatTypeRepository.findAllByShow(show);
+        int amount = 0;
+        for(ShowSeat showSeat : showSeats){
+            for(ShowSeatType showSeatType : showSeatTypes){
+                if(showSeat.getSeat().getSeatType().equals(showSeatType.getSeatType())) {
+                    amount += showSeatType.getPrice();
+                }
+            }
+        }
+
+        return amount;
 
     }
 }
