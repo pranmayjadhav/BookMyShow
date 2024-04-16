@@ -1,10 +1,11 @@
 package com.personal.bookmyshowapp.Repositories;
 
 import com.personal.bookmyshowapp.Models.Show;
+import com.personal.bookmyshowapp.Models.ShowSeatType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ShowSeatTypeRepository extends JpaRepository<ShowSeatTypeRepository, Long> {
-    List<ShowSeatTypeRepository> findAllByShow(Show show);
+public interface ShowSeatTypeRepository extends JpaRepository<ShowSeatType, Long> {
+    List<ShowSeatType> findAllByShow(Show show);
 }
