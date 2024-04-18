@@ -17,9 +17,10 @@ public class BookMyShowApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         SignUpRequestDTO signUpRequestDTO = new SignUpRequestDTO();
-        signUpRequestDTO.setEmail("pranmay@scaler.com");
-        signUpRequestDTO.setPassword("pranmayscaler");
+        signUpRequestDTO.setEmail("pranmay30@scaler.com");
+        signUpRequestDTO.setPassword("Shravani#02");
         userController.signUp(signUpRequestDTO);
+        userController.logIn(signUpRequestDTO);
     }
     public static void main(String[] args) {
 //        BaseModel bs = new BaseModel();

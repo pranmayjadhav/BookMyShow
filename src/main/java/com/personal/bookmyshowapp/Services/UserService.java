@@ -3,6 +3,7 @@ package com.personal.bookmyshowapp.Services;
 import com.personal.bookmyshowapp.Models.User;
 import com.personal.bookmyshowapp.Repositories.UserRepository;
 import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -35,4 +36,19 @@ public class UserService {
 
         return user;
     }
+
+    public boolean logIn(String email, String password) {
+
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        boolean flag=false;
+        if(userOptional.isPresent() && userOptional.get().getPassword().equals(password)){
+            flag=true;
+            System.out.println("Login successful");
+        }else {
+            System.out.println("Login unsuccessful");
+        }
+        return flag;
+
+    }
+
 }

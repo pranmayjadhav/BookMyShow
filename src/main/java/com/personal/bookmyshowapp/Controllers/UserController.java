@@ -31,4 +31,19 @@ public class UserController {
         }
         return response;
     }
+
+    public SignUpResponseDTO logIn(SignUpRequestDTO signUpRequestDTO) {
+        SignUpResponseDTO response = new SignUpResponseDTO();
+        try {
+            boolean user = userService.logIn(
+                    signUpRequestDTO.getEmail(),
+                    signUpRequestDTO.getPassword()
+            );
+            response.setResponseStatus(ResponseStatus.SUCCESS);
+        }
+        catch (Exception e) {
+            response.setResponseStatus(ResponseStatus.FALURE);
+        }
+        return response;
+    }
 }
